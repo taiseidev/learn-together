@@ -1,14 +1,24 @@
 package com.example.learntogether
 
 fun main() {
-    val trafficLightColor = "Amber"
 
-    when (trafficLightColor) {
-        "Red" -> println("Stop")
-        "Yellow", "Amber" -> println("Slow")
-        "Green" -> println("Go")
-        else -> println("Invalid traffic-light color")
-    }
+    val trafficLightColor = "Black"
+
+    val message = if (trafficLightColor == "Red") "Stop"
+    else if (trafficLightColor == "Yellow") "Slow"
+    else if (trafficLightColor == "Green") "Go"
+    else "Invalid traffic-light color"
+
+    println(message)
+
+//    val trafficLightColor = "Amber"
+//
+//    when (trafficLightColor) {
+//        "Red" -> println("Stop")
+//        "Yellow", "Amber" -> println("Slow")
+//        "Green" -> println("Go")
+//        else -> println("Invalid traffic-light color")
+//    }
 
 //    val x: Any = 20;
 //
