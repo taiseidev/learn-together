@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.learntogether.ui.theme.LearnTogetherTheme
 
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,11 +43,58 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
-                    ComposeQuadrant()
+                    BusinessCard()
                 }
             }
         }
     }
+}
+
+@Composable
+private fun BusinessCard() {
+    Column(
+        modifier = Modifier.background(Color(0xFFd3e8d5)),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Profile()
+        ContactInformation()
+    }
+}
+
+@Composable
+private fun Profile() {
+    val logo = painterResource(id = R.drawable.android_logo)
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Image(
+            painter = logo,
+            contentDescription = null,
+            modifier = Modifier
+                .background(Color(0xFF073042))
+                .size(width = 100.dp, height = 100.dp)
+                .padding(8.dp)
+        )
+        Text(
+            text = "Jennifer Doe",
+            fontSize = 36.sp,
+            fontWeight = FontWeight.W300,
+            modifier = Modifier.padding(top = 6.dp)
+        )
+        Text(
+            text = "Android Developer Extraordinaire",
+            fontSize = 12.sp,
+            fontWeight = FontWeight.W600,
+            color = Color(0xff196c3a),
+            modifier = Modifier.padding(top = 6.dp)
+        )
+    }
+}
+
+@Composable
+private fun ContactInformation() {
+
 }
 
 @Composable
@@ -120,10 +168,7 @@ fun ComposeQuadrant(modifier: Modifier = Modifier) {
 
 @Composable
 private fun Item(
-    backgroundColor: Color,
-    title: String,
-    content: String,
-    modifier: Modifier = Modifier
+    backgroundColor: Color, title: String, content: String, modifier: Modifier = Modifier
 ) {
     Column(
         modifier = modifier
@@ -132,9 +177,7 @@ private fun Item(
             .padding(16.dp),
     ) {
         Text(
-            text = title,
-            modifier = modifier.padding(bottom = 16.dp),
-            fontWeight = FontWeight.Bold
+            text = title, modifier = modifier.padding(bottom = 16.dp), fontWeight = FontWeight.Bold
         )
         Text(text = content, textAlign = TextAlign.Justify)
     }
@@ -144,7 +187,7 @@ private fun Item(
 @Composable
 fun GreetingPreview() {
     LearnTogetherTheme {
-        ComposeQuadrant()
+        BusinessCard()
 //        Body(
 //            stringResource(R.string.title),
 //            stringResource(R.string.sub_title),
