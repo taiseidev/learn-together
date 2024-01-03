@@ -9,14 +9,19 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.*
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -57,8 +62,11 @@ private fun BusinessCard() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        Spacer(modifier = Modifier.weight(1f))
         Profile()
+        Spacer(modifier = Modifier.weight(1f))
         ContactInformation()
+        Spacer(modifier = Modifier.height(60.dp))
     }
 }
 
@@ -94,7 +102,35 @@ private fun Profile() {
 
 @Composable
 private fun ContactInformation() {
-
+    Column {
+        Row {
+            Icon(
+                imageVector = Icons.Filled.Call, tint = Color(0xFF196c3a), contentDescription = null
+            )
+            Spacer(modifier = Modifier.width(16.dp))
+            Text(text = "+11（123）444 555 666", color = Color(0xFF314035))
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+        Row {
+            Icon(
+                imageVector = Icons.Filled.Share,
+                tint = Color(0xFF196c3a),
+                contentDescription = null
+            )
+            Spacer(modifier = Modifier.width(16.dp))
+            Text(text = "@AndroidDev", color = Color(0xFF314035))
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+        Row {
+            Icon(
+                imageVector = Icons.Filled.Email,
+                tint = Color(0xFF196c3a),
+                contentDescription = null
+            )
+            Spacer(modifier = Modifier.width(16.dp))
+            Text(text = "jen.doe@android.com", color = Color(0xFF314035))
+        }
+    }
 }
 
 @Composable
